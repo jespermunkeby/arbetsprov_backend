@@ -1,9 +1,8 @@
 # arbetsprov backend
 
 ## Specifikation
-Då den givna uppgiften är något öppen för tolkning har jag gjort en liten specifikation av uppgiften som jag själv tolkar den.
 
-Med hjälp av valfritt programmeringsspråk ska en objektorienterad modell för parkeringsgaraget byggas. Databas och liknande omfattas inte i själva koden, men tillägg angående dessa lösningar kan görs i tillhörande readme (denna fil). Bilar "stämplar in" när de kommer och "stämplar ut" när de åker. I samband med att de åker får de betala för den tid de stått parkerade. Priset för att parkera är 12 SEK för varje påbörjad timme. Den parkeringsansvarige på kommunen vill kunna ta ut en förteckning över vilka bilar (inklusive registreringsnummer) som har stått parkerade under en viss tidsperiod, samt hur mycket inkomsten är för den önskade tidsperioden.
+Med hjälp av valfritt programmeringsspråk ska en objektorienterad modell för ett parkeringsgarage byggas. Bilar "stämplar in" när de kommer och "stämplar ut" när de åker. I samband med att de åker får de betala för den tid de stått parkerade. Priset för att parkera är 12 SEK för varje påbörjad timme. Den parkeringsansvarige på kommunen vill kunna ta ut en förteckning över vilka bilar (inklusive registreringsnummer) som har stått parkerade under en viss tidsperiod, samt hur mycket inkomsten är för den önskade tidsperioden.
 
 ## Modellen i stora drag
 Det finns många saker som skulle kunna göras annorlunda med lite mer tid, men det jag främst fokuserat på är en långsiktig lösning. I problemet vill man lagra loggar på parkerade bilar i en odefinerad tid framöver, vilket gör att databasen är ständigt växande. När man sedan vill hämta från databasen gäller det då att sökanropet inte är allt för beroende av storleken av databasenn (antalet bil-loggar på den), för att garantera långsiktig prestanda. 
