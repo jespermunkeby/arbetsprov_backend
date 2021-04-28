@@ -55,8 +55,8 @@ class ParkingGarage:
                     ))
 
         else:
-            pass
             #raise error
+            raise KeyError('no car with lic_plate = {} in garage'.format(lic_plate))
     
     def get_summary(self,datetime_from, datetime_to):
         '''

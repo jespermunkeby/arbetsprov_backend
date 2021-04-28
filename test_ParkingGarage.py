@@ -24,7 +24,7 @@ class TestParkingGarage(unittest.TestCase):
         p.exit('abc123')
         self.assertEqual(p.backlog.nodes[0].data, 'abc123') 
 
-    def test_query_backlog(self):
+    def test_get_summary(self):
         '''
         00:00   01:00   02:00   03:00   04:00
           |   |   |   |   |   |   |   |   |
@@ -65,7 +65,6 @@ class TestParkingGarage(unittest.TestCase):
         p.exit('D4')
 
         all_time_report = p.get_summary(p.start_datetime,p.datetime)
-        print(all_time_report)
         self.assertEqual(len(all_time_report['cars_parked']), 5)
         self.assertEqual(all_time_report['income'], (1+1+3+0+1)*12)
 
@@ -79,9 +78,6 @@ class TestParkingGarage(unittest.TestCase):
         p = ParkingGarage(datetime(1999,1,1,0,0,0,0))
         report = p.get_summary(p.start_datetime,p.datetime)
         self.assertEqual(len(report['cars_parked']), 0)
-
-    def get_summary(self):
-        pass
 
 
 if __name__ == '__main__':
