@@ -11,8 +11,6 @@ Det finns många saker som skulle kunna göras annorlunda med lite mer tid, men 
 ### FakeIntervalTree
 Datastrukturen jag valt för att adressera problemet är ett [intervall-träd](https://en.wikipedia.org/wiki/Interval_tree#Centered_interval_tree). Intervallrädet har en tidskomplexitet för sökning av ett intervall av **~O(log n)**, vilket är "i stort sett konstant", åtminstonde om man jämför med en filter av en databas, vilket är **O(n)**. Det finns standardmässiga implementationer av intervallräd att hitta på github eller att implementera själv, men p.g.a. tidsbegränsningen har jag skapat klassen "FakeIntervalTree" som är just det - ett fejkat intervallträd. FakeIntervalTree har endast metoder som går att implementera på ett "riktigt" intervallträd, men har inte samma prestanda.
 
-Jag kan inte mycket om databas och liknande, men jag gissar att en blob av en IntervalTree-instans skulle kunna lagras i object storage, där det hämtas och modifieras vid behov.
-
 ### ParkingGarage
 ParkingGarage är den huvudsakliga klassen i min modell av systemet. Den har en intern klocka, en log på bilar som är parkerade just nu, samt en backlog på bilar som tidigare har varit parkerade. Bilar läggs till i loggen av parkerade med metoden enter(lic_plate) och förs över från loggen av parkerade till backlog med metoden exit(lic_plate). Metoden get_summary(datetime_from, datetime_to) ger en dictionary med tjänade pengar och info om alla bilar som varit eller är parkerade någoon gång under intervallet mellan datetime_from och datetime_to.
 
